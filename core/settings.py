@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "rest_framework",
     "drf_spectacular",
     "authors.apps.AuthorsConfig",
+    "books.apps.BooksConfig",
 ]
 
 MIDDLEWARE = [
