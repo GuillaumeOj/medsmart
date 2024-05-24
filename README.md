@@ -27,7 +27,7 @@ Book:
 2. Migrations
     - Create and apply migrations for both models.
 3. Serializers
-    - Create serializers for bot models (`Author` and `Book`)
+    - Create serializers for both models (`Author` and `Book`)
 4. Views and routes
     - Use DRF to create corresponding views and routes for each endpoint
 5. Validation
