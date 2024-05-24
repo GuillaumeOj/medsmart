@@ -57,7 +57,9 @@ class BookTests(APITestCase):
         response = self.client.post(url, data, format="json")
         self.assertEqual(response.status_code, status.HTTP_201_CREATED)
         self.assertEqual(Book.objects.count(), 1)
-        self.assertEqual(Book.objects.get().title, "foo")
+        book = Book.objects.get()
+        self.assertEqual(book.title, "foo")
+        self.assertEqual(book.author_id, self.author1.id)
 
         # The book's title already exists for this author
         response = self.client.post(url, data, format="json")
