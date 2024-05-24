@@ -49,5 +49,9 @@ Book:
 
 ## Commands
 - lint/format check: `tox -e lint`
-- run the API: `tox -e start`
+- run the API: `tox -e start` (automatically apply migrations)
 - run tests: `tox -e py312`
+- make migrations: once the dev stack is up run `tox -e makemigrations`
+
+## API documentation:
+- documentation: http://0.0.0.0:8000/api/schema/swagger-ui/
