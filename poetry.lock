@@ -192,13 +192,12 @@ pyflakes = ">=3.2.0,<3.3.0"
 
 [[package]]
 name = "inflection"
-version = "0.5.1"
+version = "0.3.1"
 description = "A port of Ruby on Rails inflector to Python"
 optional = false
-python-versions = ">=3.5"
+python-versions = "*"
 files = [
-    {file = "inflection-0.5.1-py2.py3-none-any.whl", hash = "sha256:f38b2b640938a4f35ade69ac3d053042959b62a0f1076a5bbaa1b9526605a8a2"},
-    {file = "inflection-0.5.1.tar.gz", hash = "sha256:1a29730d366e996aaacffb2f1f1cb9593dc38e2ddd30c91250c6dde09ea9b417"},
+    {file = "inflection-0.3.1.tar.gz", hash = "sha256:18ea7fb7a7d152853386523def08736aa8c32636b047ade55f7578c4edeb16ca"},
 ]
 
 [[package]]

@@ -1,6 +1,6 @@
 services:
   medsmart-db-dev:
-    container_name: medsmart-db
+    container_name: medsmart-db-dev
     image: postgres:latest
     env_file:
       - ./.env
@@ -9,5 +9,9 @@ services:
       - postgres_data:/var/lib/postgresql/data/
     ports:
       - ${POSTGRES_PORT}:5432
+    networks:
+      - medsmart-dev
 volumes:
   postgres_data:
+networks:
+  medsmart-dev:

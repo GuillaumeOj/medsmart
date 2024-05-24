@@ -1,0 +1,19 @@
+services:
+  medsmart-db-test:
+    container_name: medsmart-db-test
+    image: postgres:latest
+    env_file:
+      - ./.env
+    environment:
+      - POSTGRES_DB=${POSTGRES_DB_TEST}
+    restart: unless-stopped
+    volumes:
+      - postgres_data:/var/lib/postgresql/data-test/
+    ports:
+      - ${POSTGRES_PORT_TEST}:5432
+    networks:
+      - medsmart-test
+volumes:
+  postgres_data:
+networks:
+  medsmart-test:
