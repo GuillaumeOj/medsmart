@@ -4,9 +4,11 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView
 from rest_framework import routers
 
 from authors.views import AuthorViewSet
+from books.views import BookViewSet
 
 router = routers.SimpleRouter(trailing_slash=True)
 router.register(r"authors", AuthorViewSet, basename="author")
+router.register(r"books", BookViewSet, basename="book")
 
 urlpatterns = [
     path("admin/", admin.site.urls),
