@@ -121,6 +121,7 @@ REST_FRAMEWORK = {
     "DEFAUL_PERMISSION_CLASSES": [
         "rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly",
     ],
+    "DEFAULT_SCHEMA_CLASS": "drf_spectacular.openapi.AutoSchema",
 }
 
 SPECTATCULAR_SETTINGS = {
