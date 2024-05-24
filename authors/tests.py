@@ -20,3 +20,34 @@ class AuthorTests(APITestCase):
         self.assertContains(response, self.author1.name)
         self.assertContains(response, self.author2.name)
         self.assertContains(response, self.author3.name)
+
+    def test_create_author(self):
+        """Ensure we can create a new author."""
+        url = reverse("author-list")
+
+        # The author's name is missing
+        data = {}
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(Author.objects.count(), 0)
+        self.assertIn("name", response.data.keys())
+
+        # The author's name is empty
+        data = {"name": ""}
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(Author.objects.count(), 0)
+        self.assertIn("name", response.data.keys())
+
+        # The author's name is provided
+        data = {"name": "Author 1"}
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_201_CREATED)
+        self.assertEqual(Author.objects.count(), 1)
+        self.assertEqual(Author.objects.get().name, "Author 1")
+
+        # The author's name already exists
+        response = self.client.post(url, data, format="json")
+        self.assertEqual(response.status_code, status.HTTP_400_BAD_REQUEST)
+        self.assertEqual(Author.objects.count(), 1)
+        self.assertIn("name", response.data.keys())
