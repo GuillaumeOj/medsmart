@@ -47,6 +47,8 @@ Book:
 - Tox
 - Docker
 
+Add an `.env` file to the root of the project (see `env.example`).
+
 ## Commands
 - lint/format check: `tox -e lint`
 - run the API: `tox -e start` (automatically apply migrations)
